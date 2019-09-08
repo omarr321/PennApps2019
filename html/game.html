@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+        </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </link>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dungeon</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row gamewraper">
+            <div class="col-lg-5 cacl backdropCal" id="cacl">
+                <div class="row pad" id="screenWraper">
+                    <textarea readonly="true" id="screen"
+                        style="resize:none; width: 100%; height: 90px; border-radius: 15px;"></textarea>
+                </div>
+                <div class="row pad" style="margin-left: 7.5px;" id="gamewrapper">
+                    <div class="row buttRow">
+                        <div class="col">
+
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value="check"
+                                onclick="onPress(this)">Check</button>
+                        </div>
+
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+                    <div class="row buttRow">
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value="Player"
+                                onclick="onPress(this)">Player</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtR" value="attack"
+                                onclick="onPress(this)">Attack</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtG" value="health"
+                                onclick="onPress(this)">Health</button>
+                        </div>
+                    </div>
+
+                    <div class="row buttRow">
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value="("
+                                onclick="onPress(this)">(</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value=")"
+                                onclick="onPress(this)">)</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value="."
+                                onclick="onPress(this)">.</button>
+                        </div>
+                    </div>
+
+                    <div class="row buttRowE">
+                        <div class="col">
+
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtGr" value="up"
+                                onclick="onPress(this)">Up</button>
+                        </div>
+
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+                    <div class="row buttRow">
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtGr" value="left"
+                                onclick="onPress(this)">Left</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtGr" value="move"
+                                onclick="onPress(this)">Move</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtGr" value="right"
+                                onclick="onPress(this)">Right</button>
+                        </div>
+                    </div>
+
+                    <div class="row buttRow" style="margin-bottom: 20px">
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtB" value="clear"
+                                onclick="onPress(this)">Clear</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtGr" value="down"
+                                onclick="onPress(this)">Down</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-info calcButtBl" value="enter"
+                                onclick="onPress(this)">Enter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="moveWraper">
+
+                </div>
+            </div>
+            <div class="col-xl-7 map" id="map">
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,0)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,0)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,1)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,1)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,2)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,2)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,3)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,3)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,4)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,4)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,5)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,5)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,6)"></textarea>
+                    </div>
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,6)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,6)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,6)"></textarea>
+                    </div>
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,6)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,6)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,6)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,6)"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-left: 30px">
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(0,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(1,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(2,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(3,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(4,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(5,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(6,7)"></textarea>
+                    </div>
+
+                    <div class="col gridCol">
+                        <textarea class="gridSq" readonly="true" id="(7,7)"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>-->
+    <script src="../js/handling.js"></script>
+</body>
+
+</html>

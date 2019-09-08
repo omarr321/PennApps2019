@@ -1,0 +1,104 @@
+.container {
+    display: flex; /* or inline-flex */
+}
+
+/*
+  cacuBack: #bbbbbb
+  button: #506e8b
+*/
+
+.pad {
+    padding: 10px;
+}
+
+.padXL {
+    padding: 30px;
+}
+
+.marg {
+    margin-left: 7.5px;
+}
+
+.backdrop {
+    width: 50%;
+    height: 100%;
+    background-color: #bbbbbb;
+    flex-direction: column;
+}
+
+.backdropCal {
+    background-color: dimgrey;
+    border-radius: 10px;
+}
+
+.calcButtG {
+    background-color: rgb(83, 184, 0);
+    border:2px solid rgb(63, 141, 0);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.calcButtR {
+    background-color: rgb(184, 0, 0);
+    border:2px solid rgb(141, 0, 0);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.calcButtB {
+    background-color: rgb(0, 12, 184);
+    border:2px solid rgb(0, 9, 141);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.calcButtGr {
+    background-color: rgb(66, 66, 66);
+    border:2px solid rgb(54, 54, 54);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.calcButtBl {
+    background-color: rgb(19, 19, 19);
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.buttRow {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.buttRowE {
+    width: 100%;
+    margin-top: 64px;
+}
+
+.gridSq {
+    resize:none;
+    width: 109px; 
+    height: 109px;
+    font-size: 60px;
+    text-align: center;
+}
+
+.gridCol {
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    width: 108px; 
+    height: 108px;
+    max-width: 108px;
+    max-height: 108px;
+}
+
+body{
+    margin: 20px;
+    background: rgb(0,145,5);
+    background: linear-gradient(0deg, rgba(0,145,5,1) 0%, rgba(0,145,5,1) 24%, rgba(0,145,5,1) 25%, rgba(45,220,253,1) 33%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
