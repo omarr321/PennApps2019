@@ -1,7 +1,7 @@
 # PennApps2019
 Hack for PennApps 2019
 
-#Commands:
+## Commands:
 
 dir: this is the direction you want to move. Ex: up, down, left, right
 
